@@ -1,24 +1,33 @@
 #include <iostream>
-#include "Person.h"
-#include "Employee.h"
-#include "Student.h"
-#include "Graduation.h"
+#include "Polygyon.h"
+#include "Rectangle.h"
+#include "Triangle.h"
 using namespace std;
 
-int main()
-{
-    Person p1("Tony", "Stark", 1, 21, 1950);
-    cout << p1.getName() << " born on: " << p1.getBirthdate() << endl;
 
-    Employee e1(3000, "Tony", "Stark", 1, 21, 1950);
-    cout <<"ID: " << e1.getID() << " \nEmployee name: " << e1.getName() << " \nBorn on: " << e1.getBirthdate() << endl;
+int main() {
+    Polygon* p1;
+    Rectangle r1;
+    p1 =&r1;
+    p1->setHeight(7);
+    p1->setWidth(5);
+    cout << "The area of the rectangle is: " << p1->getArea() << endl;
+    p1->draw(); //draws rectangle
 
-    gradStudent g1("Tony", "Stark", 1, 21, 1950, 45);
-    if(g1.isGrad()){
-        cout << "This student has graduated!" << endl;
-    }
-    else{
-        cout << "This student has not yet met the requirements for graduation" << endl;
-    }
+    Triangle t1;
+    p1 = &t1;
+    p1->setHeight(7);
+    p1->setWidth(5);
+    cout << "The area of the triangle is: " << p1->getArea() << endl;
+    p1->draw();
+
+    //Question 1:
+    //Polygon p2;
+    // This line gives me an error because Polygon is an abstract class so it can't create a regular object, but it has to be a pointer.
+
+    //Question 2:
+   //I still get the same error as before when it was virtual. The compiler now says "getArea is not virtual and cannot be pure".
+
+
     return 0;
 }
